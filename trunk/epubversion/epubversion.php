@@ -168,7 +168,7 @@ $epubread++;
 $result = dbquery("UPDATE ".TABLEPREFIX."fanfiction_stories SET epubread = '".$epubread."' WHERE sid = '".$sid."'");
 
 // Call the EPub class 
-include_once("EPub.php");
+include_once("libs/EPub.php");
 $fileTime = date("D, d M Y H:i:s T");
 
 // Start NEW Book
