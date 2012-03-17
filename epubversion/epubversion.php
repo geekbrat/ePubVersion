@@ -212,14 +212,6 @@ $author = author_list($storyinfo);
 $badchar = array(',', '\'', '\"', '\`', '&', '*', '%', '$', '#', '@', '!', '^' );
 $title=str_replace($badchar,"",stripslashes($storyinfo['title']));
 
-/*
-if ($chapter == "all") {
-	$ident = $sid."0109999";
-}
-else {
-	$ident = $sid."010".$chapter;
-}
-*/
 $ident = $url."/viewstory.php?sid=".$sid;
 
 // Setup all the basic elements of the book. Later versions I will include a panel to edit Publisher info and Rights
@@ -242,9 +234,6 @@ $ucover = $epub['epubcover'];
 
 $scover = $settings['epubcover'];
 
-//echo $settings['epubcover'];
-
-//echo $scover;
 
 if (isset($settings['epubcover'])||isset($epub['epubcover'])) {
 	if (isset($epub['epubcover'])) {
@@ -256,18 +245,6 @@ if (isset($settings['epubcover'])||isset($epub['epubcover'])) {
 	}
 }
 
-
-/*
-if (isset($settings['epubcover'])) {
-        if (isset($epub['epubcover'])) {
-//		$cover_parts = pathinfo($epub['epubcover']);
-		$book->setCoverImage("/".$epub['epubcover']); 
-	}
-        else {  
-		$book->setCoverImage("/".$settings['epubcover']);
-	}
-}
-*/
 // Now we start setting up the other crap...
 
 	if(empty($chapter)) $chapter = "all"; // shouldn't happen but just in case
@@ -575,7 +552,7 @@ if (isset($settings['epubcover'])) {
 
 		$book->finalize();
 		$zipData = $book->sendBook($title." [".$c['inorder']."]");
-		exit( );
+		exit();
 	}				
 
 }
