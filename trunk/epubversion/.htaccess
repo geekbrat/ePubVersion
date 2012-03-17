@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^epubcover/([^/]+)/([^/]+) dyncover.php?sid=$1&size=$2 [NC]
+RewriteRule ^epubs/([^/]+)/([^/]+)/([^/]+).epub epubversion.php?sid=$1&chapter=$2 [NC]
+RewriteRule ^images/dynban.png dynban.php [NC]
