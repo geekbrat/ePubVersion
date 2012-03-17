@@ -8,11 +8,6 @@
 
 function coverImage($site_host, $book, $cover_img, $epubimg){
 
-//echo $site_host."\n";
-//echo $book."\n";
-//echo $cover_img."\n";
-//echo $epubimg."\n";
-
    if ($epubimg != "0"){
 
 //Add Trailing slash to $site_host just in case....
@@ -30,22 +25,19 @@ function coverImage($site_host, $book, $cover_img, $epubimg){
 			else if (!$scheme){
 				$img_san=$site_host.$cover_img;
 			}    
-//Determine the image type....
-//			$path_parts = pathinfo('/fake/path/$cover_img');
-//			$img_type ==  $path_parts['extension'];
-
+/*
+* Determine the image type -- 
+* Look for the patterns png, gift, jpg, jpe, jpeg, or php 
+* in the last 4 chars of the string $cover_img....
+*/
 			preg_match('/png|gif|jpg|jpe|jpeg|php/i', substr($cover_img,-4),$img_type,PREG_OFFSET_CAPTURE); 
-
-//			print_r($img_type[0][0]);
 
 			if (strtolower($img_type[0][0]) == "php") {
 				preg_match('/dynban.php/i', $cover_img,$img_type);
 			}
 //Make $img_type all lower case
-//			if (isset($img_type[0]))(
 			$img_type = strtolower($img_type[0][0]);
-//			$img_type = strtolower($img_type);
-
+            
     // If PNG
 			if ($img_type == "png") {
         			$img = getImage($img_san, $epubimg);
@@ -90,7 +82,7 @@ function coverImage($site_host, $book, $cover_img, $epubimg){
     			$img_filename = "cover.".$img_type;
     			$img_fileid = "cover".$img_type;
     			$book->addFile($img_filename, $img_fileid,  $img, $mimetype);
-//			echo($img_filename);
+                $book->setCoverImage($img_filename, $img, $mimetype);
 		}
 		
 //	)
