@@ -1,0 +1,9 @@
+<?php
+define("_EPUB", "ePub eBook");
+define("_EPUBS", "ePub eBooks");
+define("_EPUBBROWSE", "Stories Available as ePub eBooks");
+define("_EPUBDL", "Download ePub");
+define("_EPUBMANAGE", "Manage Your Stories/ePubs");
+define("_EPUBVERSIONS", "Stories Available as ePub eBooks");
+define("_ePubVersionAdmin", "ePubVersion Module Administration");
+define("_EPUBDESC", "ePub (or EPUB, ePUB, EPub, epub) is an Electronic Publication format (or eBook) supported by most Hardware and Software eBook readers. The most notible exception being the Amazon Kindle. For more information on ePub and devices that support them, <A HREF=\"http://en.wikipedia.org/wiki/EPub\">Click Here</A>.");
