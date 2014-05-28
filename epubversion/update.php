@@ -25,10 +25,10 @@ $currentVersion = dbrow(dbquery("SELECT version FROM ".TABLEPREFIX."fanfiction_m
 if(empty($currentVersion ) || $currentVersion[0] < 1.1) {
 	if($confirm == "yes") {
 		if(empty($currentVersion) || $currentVersion[0] == 0) {
-			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) NOT NULL default '0'");
-			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) NOT NULL default '0'");
+			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) default '0'");
+			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) default '0'");
 			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubanon` TINYINT( 1 ) NOT NULL default '1'");
-			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtidy` TINYINT( 1 ) NOT NULL default '0'");
+			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtidy` TINYINT( 1 ) default '0'");
 			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubsitename` varchar(200) NOT NULL default 'Your SiteName Here!'");
 			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtagline` varchar(200) NOT NULL default 'Catchy Tag-Line Here!'");
 			dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epuburl` varchar(200) NOT NULL default 'http://your-stie.url'");
@@ -62,10 +62,10 @@ if(empty($currentVersion ) || $currentVersion[0] < 1.1) {
 			dbquery("INSERT INTO `".TABLEPREFIX."fanfiction_modules`(`version`, `name`) VALUES('$moduleVersion', '$moduleName')");
 	}
 	else if($currentVersion[0] < 1.0) {
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) NOT NULL default '0'");
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) NOT NULL default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) default '0'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubanon` TINYINT( 1 ) NOT NULL default '1'");
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtidy` TINYINT( 1 ) NOT NULL default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtidy` TINYINT( 1 ) default '0'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubsitename` varchar(200) NOT NULL default 'Your SiteName Here!'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubtagline` varchar(200) NOT NULL default 'Catchy Tag-Line Here!'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epuburl` varchar(200) NOT NULL default 'http://your-stie.url'");
@@ -97,8 +97,8 @@ if(empty($currentVersion ) || $currentVersion[0] < 1.1) {
 
 	}
 	else if($currentVersion[0] < 1.1) {
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) NOT NULL default '0'");
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) NOT NULL default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) default '0'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epublang` varchar(2) NULL default NULL");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubcover` varchar(200) NULL default NULL");
 		dbquery("ALTER TABLE `".TABLEPREFIX."fanfiction_stories` ADD `epubcover` varchar(200) NULL default NULL");
@@ -107,7 +107,7 @@ if(empty($currentVersion ) || $currentVersion[0] < 1.1) {
 		dbquery("INSERT INTO `".TABLEPREFIX."fanfiction_codeblocks` (`code_text`, `code_type`, `code_module`) VALUES ('include(_BASEDIR.\"modules/epubversion/recentblock.php\");', 'storyblock', 'epubversion');");
 	}
 	else if($currentVersion[0] < 1.2) {
-		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) NOT NULL default '0'");
+		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubrw` TINYINT( 1 ) default '0'");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epublang` varchar(2) NULL default NULL");
 		dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubcover` varchar(200) NULL default NULL");
 		dbquery("ALTER TABLE `".TABLEPREFIX."fanfiction_stories` ADD `epubcover` varchar(200) NULL default NULL");

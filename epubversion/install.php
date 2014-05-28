@@ -14,7 +14,7 @@ $confirm = isset($_GET['confirm']) ? $_GET['confirm'] : false;
 if($confirm == "yesoff"||$confirm == "yeson") {
 try {
  if (false === dbquery("select `epubimg` from `".$settingsprefix."fanfiction_settings` limit 0")) {
-    dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) NOT NULL default '0'");
+    dbquery("ALTER TABLE `".$settingsprefix."fanfiction_settings` ADD `epubimg` TINYINT( 1 ) default '0'");
  }
 }        catch (Exception $e) {
              $output .= 'Caught exception: '.$e->getMessage()." But Continued\n";
