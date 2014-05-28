@@ -141,8 +141,13 @@ if(empty($currentVersion ) || $currentVersion[0] < 1.1) {
 			$output .= 'Caught exception: '.$e->getMessage()." But Continued\n";
 		}
 		try {
-			if (false === dbquery("select `epubcover` from `".TABLEPREFIX."fanfiction_stories` limit 0")) {
-				dbquery("ALTER TABLE `".TABLEPREFIX."fanfiction_stories` ADD `epubcover` varchar(200) NULL default NULL");
+			if (false === dbquery("select `epubimg` from `".TABLEPREFIX."fanfiction_stories` limit 0")) {
+				dbquery("ALTER TABLE `".TABLEPREFIX."fanfiction_stories` ADD `epubimg` TINYINT( 1 ) default '0'");
+			}
+		} catch (Exception $e) {
+			$output .= 'Caught exception: '.$e->getMessage()." But Continued\n";try {
+			if (false === dbquery("select `epubrw` from `".TABLEPREFIX."fanfiction_stories` limit 0")) {
+				dbquery("ALTER TABLE `".TABLEPREFIX."fanfiction_stories` ADD `epubrw` TINYINT( 1 ) default '0'");
 			}
 		} catch (Exception $e) {
 			$output .= 'Caught exception: '.$e->getMessage()." But Continued\n";
