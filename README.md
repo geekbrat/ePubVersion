@@ -48,77 +48,49 @@ To install this module:
 
 5. We have added several new tags to ePubVersion that can be added to your templates.
 
-- `{printepub}` -- Displays a direct Download link for ePub version of a Story.
+- - `{printepub}` -- Displays a direct Download link for ePub version of a Story.
 
-- `{printthumb}` -- Displays a thumbnail Image of the epub/Book Cover is one has been set in "Manage ePub Stories". 
--  - Cover image is dynamicaly resized so that max width or height is no larger than 100px. Original Aspect ratios are kept.
-- - Requires PHP Compiled with GD, and GD compiled with PNG/JPG/GIF support.
+- - `{printthumb}` -- Displays a thumbnail Image of the epub/Book Cover is one has been set in "Manage ePub Stories". 
+-  - - Cover image is dynamicaly resized so that max width or height is no larger than 100px. Original Aspect ratios are kept.
+- - - Requires PHP Compiled with GD, and GD compiled with PNG/JPG/GIF support.
 
-- `{cover}` -- Displays an Image of the epub/Book Cover is one has been set in "Manage ePub Stories". 
--  - Cover image is dynamicaly resized so that max width or height is no larger than 250px. Original Aspect ratios are kept.
-- - Requires PHP Compiled with GD, and GD compiled with PNG/JPG/GIF support.
+- - `{cover}` -- Displays an Image of the epub/Book Cover is one has been set in "Manage ePub Stories". 
+-  - - Cover image is dynamicaly resized so that max width or height is no larger than 250px. Original Aspect ratios are kept.
+- - - Requires PHP Compiled with GD, and GD compiled with PNG/JPG/GIF support.
 
-- `{epubcount}` -- Returns the number of times a Story has been downloaded as "epub" in numerical form.
+- - `{epubcount}` -- Returns the number of times a Story has been downloaded as "epub" in numerical form.
 ----------
 
 *Below you will find sample usage of the new skin tags as found in my index.tpl (recentblock) and listings.tpl (storyblock). I have made use of CSS to make the various "boxes" size properly around the images.*
 
 ----------
 
-    <!\-\- START BLOCK : recentblock -->
-    
+    <!\-\- START BLOCK : recentblock -->  
     <div style="min-height:100px; height:auto!important; height:100px;">
-    
-    <span style="font-weight: bold; font-size: 1.2em; border-bottom: 1px dashed #999; margin-bottom: 5px;">
-    
+    <span style="font-weight: bold; font-size: 1.2em; border-bottom: 1px dashed #999; margin-bottom:5px;">
     {printthumb}{title} by {author} {printepub}</span><br />
-    
     <span class="label">Summary: </span>{summary}<br />
-    
     <span class="label">Rated:</span> {rating} {score} <span class="label">Categories:</span> {category} {classes}</span>
-    
     <br />
-    
     </div>
-    
     <hr>
-    
     <!\-\- END BLOCK : recentblock -->
 ```
    <!\-\- START BLOCK : storyblock -->
-    
     <div class="listbox {oddeven}">
-    
     <div class="title"><span class="t2">{title}</span> by {author} <span class="label">Rated:</span> {rating} {roundrobin} {score} \[{reviews} - {numreviews}\] {new} </div>
-    
-    <div style="min-height:250px; height:auto!important; height:250px;">
-    
-    {cover}
-    
+    <div style="min-height:250px; height:auto!important; height:250px;"> {cover}
     <div class="content"><span class="label">Summary: </span>{featuredstory}{summary}<br />
-    
     <span class="label">Categories:</span> {category} <br />
-    
     <span class="label">Characters: </span> {characters}<br />
-    
     {classifications}
-    
     <span class="label">Series:</span> {serieslinks}<br />
-    
     <span class="label">Chapters: </span> {numchapters} {toc}<br />
-    
     <span class="label">Completed:</span> {completed}
-    
-    <span class="label">Word count:</span> {wordcount} <span class="label">Read Count:</span> {count} <span class="label">ePub Downloads:</span> {epubcount}
-    
-    {adminlinks}</div></div>
-    
-    <div class="tail"><span class="label">{printepub} {addtofaves} {reportthis} Published: </span>{published} <span class="label">Updated:</span> {updated}</div>
-    
+    <span class="label">Word count:</span> {wordcount} <span class="label">Read Count:</span> {count} <span class="label">ePub Downloads:</span> {epubcount} {adminlinks}</div></div>
+    <div class="tail"><span class="label">{printepub} {addtofaves} {reportthis} Published: </span {published} <span class="label">Updated:</span> {updated}</div>
     </div>
-    
     {comment}
-    
     <!\-\- END BLOCK : storyblock -->
 ```
 To uninsall this module:
