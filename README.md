@@ -1,4 +1,4 @@
-ePubVersion v1.2 for eFiction 3.x
+ePubVersion for eFiction 3.x
 ----------
 Copyright (c) 2010 by Kirstyn Amanda Fox
 
